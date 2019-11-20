@@ -51,7 +51,19 @@ class Owner
   end 
   
   def sell_pets
-    [dogs, cats].each {|pet| pet.mood = "nervous"}
+    # binding.pry
+    self.dogs.each {|pet| pet.mood = "nervous"}
+    self.cats.each {|pet| pet.mood = "nervous"}
+    cats.each {|ele| ele.owner = nil}
+    dogs.each {|ele| ele.owner = nil}
+    
+  end 
+  
+  def list_pets
+    dog_amount = self.dogs.count
+    cat_amount = self.cats.count
+    
+    "I have #{dog_amount} dog(s), and #{cat_amount} cat(s)."
   end 
   
 end
