@@ -1,13 +1,13 @@
+require "pry"
 class Owner
   attr_reader :name, :species 
   
     @@owner = []
   def initialize(name)
+    # binding.pry
     @name = name
     @species = "human"
     @@owner << self
-    @@all = []
-    @cats = []
   end 
   
   def say_species
@@ -34,7 +34,24 @@ class Owner
     Dog.all.select {|dog| dog.owner == self}
   end 
   
-  def buy_cat(cat_bought)
-    cat_bought.owner = self
+  def buy_cat(cat_name)
+    Cat.new(cat_name, self)
   end 
+  
+  def buy_dog(dog_name)
+    Dog.new(dog_name, self)
+  end 
+  
+  def walk_dogs
+    self.dogs.each {|dog| dog.mood = "happy"}
+  end 
+  
+  def feed_cats 
+     self.cats.each {|cat| cat.mood = "happy"}
+  end 
+  
+  def sell_pets
+    [dogs, cats].each {|pet| pet.mood = "nervous"}
+  end 
+  
 end

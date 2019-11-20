@@ -1,6 +1,6 @@
 class Dog
-  attr_accessor :owner 
-  attr_reader :name, :mood 
+  attr_accessor :owner, :mood  
+  attr_reader :name 
   
   @@all = []
   
@@ -9,10 +9,6 @@ class Dog
     @owner = owner 
     @mood = "nervous"
     @@all << self 
-  end 
-  
-  def mood=(mood)
-    @mood = "hungry"
   end 
     
     
