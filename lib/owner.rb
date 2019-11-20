@@ -7,7 +7,6 @@ class Owner
     @species = "human"
     @@owner << self
     @@all = []
-  
   end 
   
   def say_species
@@ -24,5 +23,9 @@ class Owner
   
   def self.reset_all
     @@owner.clear
+  end 
+  
+  def cats 
+    
   end 
 end
